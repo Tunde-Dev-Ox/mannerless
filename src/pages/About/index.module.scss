@@ -1,0 +1,118 @@
+@use '/src/assets/scss/mixins' as mixin;
+@use '/src/assets/scss/breakpoints' as bp;
+
+.about_page {
+    padding-top: 100px; // Account for fixed header
+    min-height: 100vh;
+    background-color: #121212;
+    color: #fff;
+
+    .container {
+        @include mixin.container;
+    }
+
+    .hero {
+        padding: 60px 0;
+        text-align: center;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+
+            @include mixin.md {
+                font-size: 4rem;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        figure {
+            margin-top: 2rem;
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .intro {
+        padding: 40px 0;
+
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: #ccc;
+            }
+
+             figure {
+            margin-top: 2rem;
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            }
+        }
+    }
+
+    .skills {
+        padding: 60px 0 100px;
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .skills_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2rem;
+
+            .skill_card {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 30px 20px;
+                border-radius: 12px;
+                text-align: center;
+                transition: transform 0.3s ease, background 0.3s ease;
+                cursor: default;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+                .icon {
+                    margin-bottom: 15px;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                h3 {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: #eee;
+                }
+            }
+        }
+    }
+}

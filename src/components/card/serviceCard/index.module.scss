@@ -1,0 +1,74 @@
+@use "../../../assets/scss/breakpoints" as bp;
+
+.service_card {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: rgb(1, 1, 1);
+    border-radius: 24px;
+    position: sticky;   
+    top: 80px;
+    box-shadow:
+    0 1px 2px rgba(28, 27, 27, 0.04),
+    0 8px 24px rgba(27, 26, 26, 0.06);
+    transition: 
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+    .service_card__wrapper {
+        @include bp.breakpoint-custom-down(768) {
+            flex-direction: column;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem;
+        gap: 120px;
+        @include bp.breakpoint-custom-down(768) {
+            gap: 40px;
+        }
+
+        .service_contents {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            h2 {
+                font-size: 2.8rem;
+                color: #ffffff;
+                line-height: 1;
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin-top: 1.5rem;
+                color: #bebebe;
+                max-width: 400px;
+            }
+
+            button {
+                margin-top: 1.5rem;
+                cursor: pointer;
+                font-size: 1.1rem;
+                padding: 4px 14px;
+                border-radius: 24px;
+                border: 2px solid #fff;
+            }
+        }
+
+        figure {
+            width: 50%;
+            border-radius: 24px;
+            @include bp.breakpoint-custom-down(768) {
+                width: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 24px;
+            }
+        }
+    }
+}

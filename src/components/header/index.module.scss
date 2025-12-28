@@ -1,0 +1,181 @@
+@use '/src/assets/scss/mixins' as mixin;
+@use '/src/assets/scss/breakpoints' as bp;
+
+.header {
+    height: 80px;
+    width: 100%;
+    position: fixed; // Fixed to stay on top
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent; // Glassmorphism background
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .header_wrapper {
+        @include mixin.container;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            width: unset;
+            z-index: 1002; // Above mobile menu
+
+            span {
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+                line-height: 1;
+                color: #fff;
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        // Desktop Nav
+        .desktop_nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            @include bp.breakpoint-custom-down(768) {
+                display: none;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                align-items: center;
+                gap: 2.5rem;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    a {
+                        color: rgba(255, 255, 255, 0.7);
+                        font-size: 0.95rem;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        text-decoration: none;
+                        position: relative;
+                        transition: color 0.3s ease;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 1px;
+                            bottom: -4px;
+                            left: 0;
+                            background-color: #fff;
+                            transition: width 0.3s ease;
+                        }
+
+                        &:hover {
+                            color: #fff;
+
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .cta {
+            z-index: 1002;
+            @include bp.breakpoint-custom-down(768) {
+                display: none;
+            }
+
+            button {
+                padding: 10px 24px;
+                border-radius: 50px;
+                background-color: #fff;
+                cursor: pointer;
+                border: none;
+                font-size: 1rem;
+                font-weight: 700;
+                color: #000;
+                transition: transform 0.2s ease, background-color 0.2s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                    background-color: #f0f0f0;
+                }
+            }
+        }
+
+        .mobile_toggle {
+            display: none;
+            z-index: 1002;
+            cursor: pointer;
+
+            @include bp.breakpoint-custom-down(768) {
+                display: block;
+            }
+        }
+
+        // Mobile Menu Overlay
+        .mobile_menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1001;
+            opacity: 0;
+
+            &.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile_nav_list {
+                list-style: none;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+
+                li {
+                    overflow: hidden;
+
+                    a {
+                        font-size: 2.5rem;
+                        color: #fff;
+                        text-decoration: none;
+                        font-weight: 700;
+                        display: block;
+                        transform: translateY(100%);
+                        transition: transform 0.5s ease 0.2s;
+
+                        &:hover {
+                            color: #888;
+                        }
+                    }
+                }
+            }
+
+            &.active .mobile_nav_list li a {
+                transform: translateY(0);
+            }
+        }
+    }
+}
