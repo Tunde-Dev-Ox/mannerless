@@ -101,7 +101,7 @@ const Home = () => {
                             <h4>
                                 "I am JohnBosco Madueke, a music producer and composer. I write music that breaks the status quo."
                             </h4>
-                            <Link to="/">
+                            <Link to="/about">
                                 Learn more <IoIosArrowForward />
                             </Link>
                         </div>

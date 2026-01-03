@@ -41,6 +41,11 @@
             max-width: 700px;
             text-align: center;
             margin-bottom: 12px;
+
+            span {
+                @extend h1;
+                color: #717171;
+            }
         }
 
         p {

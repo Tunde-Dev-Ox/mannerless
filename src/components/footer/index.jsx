@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { Link } from "react-router-dom";
-import { FaApple, FaInstagram, FaSpotify, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaApple, FaInstagram, FaSpotify, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     const time = new Date();
@@ -41,19 +41,19 @@ const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/">
+                            <Link to="https://www.instagram.com/mannerless00?igsh=cWJtNGsyMWowbGk5&utm_source=qr">
                                <FaInstagram />
                             </Link>
                         </li>
                         <li>
-                            <Link to="/">
-                               <FaTiktok />
+                            <Link to="https://x.com/Mac_Jaycee">
+                               <FaTwitter />
                             </Link>
                         </li>
                     </ul>
                     <div className={styles.creator}>
                         <span>
-                            Built by <Link to="/">JOT</Link>
+                            Designed & Built by <Link to="https://x.com/real__jot">JOT</Link>
                         </span>
                     </div>
                 </div>

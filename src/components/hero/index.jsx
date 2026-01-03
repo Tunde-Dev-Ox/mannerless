@@ -40,7 +40,7 @@ const Hero = () => {
                     animate="visible"
                 >
                     <motion.h1 variants={itemVariants}>
-                        Stop saving demos. Start releasing records.
+                        <span>Creative thinking.</span><br />Better music.
                     </motion.h1>
                     <motion.p variants={itemVariants}>
                         I work with artists who are ready to move past ideas and create music that stands the test of time.

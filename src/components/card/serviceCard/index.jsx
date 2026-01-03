@@ -1,5 +1,6 @@
 import styles from './index.module.scss';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -27,7 +28,9 @@ const ServiceCard = ({ title, description, link, src, alt }) => {
                         {description}
                     </p>
                     <button>
-                        {link}
+                       <Link to="/contact">
+                           {link}
+                       </Link>
                     </button>
                 </div>
                 <figure>
